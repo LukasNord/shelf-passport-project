@@ -2,6 +2,9 @@ myApp.controller('HomeController', ['$http', '$location', 'UserService', functio
     console.log('HomeController created');
     
     var self = this;
+    self.items = ShelfService.items;
+
+
 
     self.user = {
       username: '',
