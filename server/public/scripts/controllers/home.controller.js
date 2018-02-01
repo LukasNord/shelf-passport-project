@@ -1,12 +1,17 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
-    console.log('LoginController created');
+myApp.controller('HomeController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
+    console.log('HomeController created');
+    
     var self = this;
+
     self.user = {
       username: '',
       password: ''
     };
+
     self.message = '';
 
+    self.registerNav = false;
+    
     self.login = function() {
       if(self.user.username === '' || self.user.password === '') {
         self.message = "Enter your username and password!";
@@ -38,6 +43,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
         $http.post('/api/user/register', self.user).then(function(response) {
           console.log('success');
           $location.path('/home');
+          self.registerNav = false;
         },
         function(response) {
           console.log('error');

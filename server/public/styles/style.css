@@ -72,3 +72,7 @@ ul {
     text-decoration: underline;
     background-color: rgb(233, 233, 233);
 }
+
+label {
+    color: white;
+}

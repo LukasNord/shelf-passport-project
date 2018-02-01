@@ -4,11 +4,35 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
     var self = this;
   
     self.userObject = {};
+    self.items = { list: [] };
   
-    self.addItem = function()
+
+    /* Add New Item */
+    self.addItem = function(newItem){
+        
+        $http.post('/api/shelf/addItem', newItem).then(
+            function(response) {
+              console.log('item added: ', response);
+        
+            })// end POST       
+    }// end add new Item
 
 
 
+    self.getItems = function(){
+
+        $http.get('/api/shelf/getItems')
+            .then(function (response) {
+
+                console.log('items response: ', response.data );
+                self.items.list = response.data;
+            })
+
+
+    }// end Get Items
+
+    //Call getItems to fetch item list
+    self.getItems();
 
 
 
