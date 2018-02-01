@@ -55,7 +55,7 @@ ul {
 }
 
 li {
-    float: left;
+    float: right;
 }
 
 li a {
@@ -71,4 +71,8 @@ li a {
 li a:hover {
     text-decoration: underline;
     color: #eee;
+}
+
+label {
+    color: white;
 }
