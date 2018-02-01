@@ -5,7 +5,16 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
   
     self.userObject = {};
   
-    self.addItem = function()
+
+    /* Add New Item */
+    self.addItem = function(newItem){
+        
+        $http.post('/api/shelf/addItem', newItem).then(
+            function(response) {
+              console.log('item added: ', response);
+        
+            })// end POST       
+    }// end add new Item
 
 
 
