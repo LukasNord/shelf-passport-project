@@ -1,5 +1,13 @@
 <div ng-include="'views/partials/navHome.html'"></div>
 <div class="container">
-  <h1 class="lead">Shelf</h1>
     
+  <h1 class="lead">Shelf</h1>
+  <div ng-repeat="item in vm.items.list">
+    {{item}}
+
+
+  </div>  
+
+
+
 </div>
