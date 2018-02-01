@@ -9,8 +9,8 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
 
   self.addItem = function (newItem) {
     ShelfService.addItem(newItem);
-
-  } //end add item
+    ShelfService.getItems();
+  }//end add item
 
 
   self.showAdvanced = function (ev) {
