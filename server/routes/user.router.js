@@ -1,6 +1,7 @@
 const express = require('express');
 const encryptLib = require('../modules/encryption');
-const Person = require('../models/Person');
+const User = require('../models/User');
+const Item = require('../models/Item');
 const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
@@ -24,11 +25,34 @@ router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
 
-  const newPerson = new Person({ username, password });
-  newPerson.save()
+  const newUser = new User({ username, password });
+  newUser.save()
     .then(() => { res.sendStatus(201); })
     .catch((err) => { next(err); });
 });
+
+router.post('/shelf', (req,res) => {
+
+  console.log('req.body: ', req);
+    
+    
+  const newItem = req.body;
+  newItem.placer = req.user._id;
+
+  console.log('newItem: ', newItem);
+  
+  let itemToSave = new Item( newItem );
+
+  itemToSave.save()
+    .then(() => { res.sendStatus(201); })
+    .catch((err)=> { next(err); });
+
+
+
+});// end shelf post
+
+
+
 
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
