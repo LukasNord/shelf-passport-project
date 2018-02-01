@@ -12,27 +12,9 @@
 
 
     <div id="itemHolder" style="display: flex; flex-direction:row; align-items:center; justify-content:center;">
-        <div ng-repeat="item in vm.items.list">
-            {{item.itemName}} {{item.description}} {{item.imageUrl}}
+        <div ng-repeat="item in vm.shelfItems">
+            {{item}}
         </div>
     </div>
     
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    (<--IN ADD VIEW<br>
-        itemName:
-        <input type="text" ng-model="vm.shelfItem.itemName"> Description:
-        <input type="textarea" ng-model="vm.shelfItem.description"> imageUrl:
-        <input type="text" ng-model="vm.shelfItem.imageUrl">
-        <button ng-click="vm.addItem(vm.shelfItem)"> BIG F***ING BUTTON</button>
-        <br> -->)
-
-
-
-
-
 </div>
