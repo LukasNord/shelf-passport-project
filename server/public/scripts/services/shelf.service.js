@@ -13,6 +13,7 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
         $http.post('/api/shelf/addItem', newItem).then(
             function(response) {
               console.log('item added: ', response);
+              self.getItems();
         
             })// end POST       
     }// end add new Item

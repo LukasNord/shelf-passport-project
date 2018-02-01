@@ -10,7 +10,8 @@ myApp.controller('UserController', ['UserService','$http','ShelfService', functi
   self.addItem = function(newItem){
       
     ShelfService.addItem(newItem);
-  
+    
+    ShelfService.getItems();
   }//end add item
 
 
