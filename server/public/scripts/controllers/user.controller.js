@@ -5,6 +5,7 @@ myApp.controller('UserController', ['UserService','$http','ShelfService', functi
   self.userObject = UserService.userObject;
 
   self.shelfItem = {};
+  self.shelfItems = [{name: 'OBJ1'}, {name: 'OBJ2'}, {name: 'OBJ3'}];
 
   self.addItem = function(newItem){
       

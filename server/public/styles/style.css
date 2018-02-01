@@ -54,13 +54,13 @@ ul {
     overflow: hidden;
 }
 
-li {
+.btn {
     float: right;
 }
 
-li a {
+.btn {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -68,9 +68,9 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+.btn:hover {
     text-decoration: underline;
-    color: #eee;
+    background-color: rgb(233, 233, 233);
 }
 
 label {
