@@ -18,6 +18,20 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
 
 
 
+    self.getItems = function(){
+
+        $http.get('/api/shelf/getItems')
+            .then(function (response) {
+
+                console.log('items response: ', response.data );
+                
+
+
+            })
+
+
+    }
+
 
 
 
