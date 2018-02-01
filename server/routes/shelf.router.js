@@ -29,7 +29,19 @@ router.post('/addItem', (req,res) => {
   });// end shelf post
   
 
+router.get('/getItems', (req, res)=> {
+  
+  Item.find( { }, (error, data)=> {
+    if(error){
+      console.log('MongoDB error on getItems: ', error);
+      res.sendStatus(500);
+    }else {
+      console.log('Foud Items: ', data);
+      res.send(data);
+    }
+  });//end Item Find
 
+});// end GET items route
 
 
 

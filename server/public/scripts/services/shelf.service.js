@@ -4,6 +4,7 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
     var self = this;
   
     self.userObject = {};
+    self.items = { list: [] };
   
 
     /* Add New Item */
@@ -24,14 +25,14 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
             .then(function (response) {
 
                 console.log('items response: ', response.data );
-                
-
-
+                self.items.list = response.data;
             })
 
 
-    }
+    }// end Get Items
 
+    //Call getItems to fetch item list
+    self.getItems();
 
 
 
