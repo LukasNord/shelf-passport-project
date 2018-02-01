@@ -32,8 +32,22 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
 
     }// end Get Items
 
-    //Call getItems to fetch item list
+    //Call getItems to fetch item list when Service is Instantiated
     self.getItems();
+
+
+    self.deleteItem = function(item){
+
+        
+
+
+
+    }
+
+
+
+
+
 
 
 
