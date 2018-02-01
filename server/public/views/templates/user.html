@@ -1,8 +1,7 @@
-<div ng-include="'views/partials/nav.html'"></div>
 <div class="navbar">
     <div class="container">
         <button class="btn" ng-click="vm.userService.logout()">Log Out</button>
-        <button class="btn" ng-click="vm.addItemView()">Add Item</button>
+        <button class="btn" ng-click="vm.showAdvanced()">Add Item</button>
     </div>
 </div>
 
@@ -17,7 +16,7 @@
             {{item.itemName}} {{item.description}} {{item.imageUrl}}
         </div>
     </div>
-    git
+    
     <br>
     <br>
     <br>
