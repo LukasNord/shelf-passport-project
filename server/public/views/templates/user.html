@@ -1,8 +1,7 @@
-<div ng-include="'views/partials/nav.html'"></div>
 <div class="navbar">
     <div class="container">
         <button class="btn" ng-click="vm.userService.logout()">Log Out</button>
-        <button class="btn" ng-click="vm.addItemView()">Add Item</button>
+        <button class="btn" ng-click="vm.showAdvanced()">Add Item</button>
     </div>
 </div>
 
@@ -13,11 +12,11 @@
 
 
     <div id="itemHolder" style="display: flex; flex-direction:row; align-items:center; justify-content:center;">
-        <div ng-repeat="item in vm.shelfItems">
-            {{item}}
+        <div ng-repeat="item in vm.items.list">
+            {{item.itemName}} {{item.description}} {{item.imageUrl}}
         </div>
     </div>
-
+    
     <br>
     <br>
     <br>
@@ -31,6 +30,7 @@
         <input type="text" ng-model="vm.shelfItem.imageUrl">
         <button ng-click="vm.addItem(vm.shelfItem)"> BIG F***ING BUTTON</button>
         <br> -->)
+
 
 
 
