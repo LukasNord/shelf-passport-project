@@ -14,17 +14,17 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
             function(response) {
               console.log('item added: ', response);
               self.getItems();
-        
-            })// end POST       
+    
+            }).catch((err)=>{
+                console.log('err. ', err)});
+                // end POST       
     }// end add new Item
 
 
 
     self.getItems = function(){
-
         $http.get('/api/shelf/getItems')
             .then(function (response) {
-
                 console.log('items response: ', response.data );
                 self.items.list = response.data;
             })

@@ -1,11 +1,14 @@
 myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$mdDialog', function (UserService, $http, ShelfService, $mdDialog) {
   console.log('UserController created');
   var self = this;
-  self.userService = UserService;
+  
   self.userObject = UserService.userObject;
+  self.logout = UserService.logout;
+
 
   self.shelfItem = {};
   self.items = ShelfService.items;
+
 
   self.addItem = function (newItem) {
     ShelfService.addItem(newItem);
