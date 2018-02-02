@@ -11,7 +11,7 @@ const router = express.Router();
 
 /* POST: Add Item to Item Collection */
 
-router.post('/addItem', (req,res) => {
+router.post('/addItem', userStrategy.authenticate('local'), (req,res) => {
 
     console.log('req.body: ', req);
       
