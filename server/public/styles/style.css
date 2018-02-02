@@ -88,3 +88,15 @@ md-toast{
 
 
 }
+
+.image-limit {
+
+    max-height: 300px;
+    max-width: 250px;
+
+}
+.desc-wrap{
+    max-width: 250px;
+
+
+}

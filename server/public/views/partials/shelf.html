@@ -1,7 +1,7 @@
 <div layout-xs="column" layout="row" layout-wrap>
     <md-card ng-repeat="item in vm.items.list" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title>
-            <md-card-title-text>
+            <md-card-title-text layout-wrap class="desc-wrap">
                 <span class="md-headline">{{item.itemName}}</span>
                 <span class="md-subhead">{{item.description}}</span>
             </md-card-title-text>
@@ -11,7 +11,7 @@
         </md-card-title>
         <md-card-title-media>
             <div class="md-media-lg card-media">
-                <img class="md-card-image" ng-src="{{item.imageUrl}}" alt="no-URL">
+                <img class="md-card-image image-limit" ng-src="{{item.imageUrl}}" alt="no-URL">
             </div>
         </md-card-title-media>
     </md-card>
