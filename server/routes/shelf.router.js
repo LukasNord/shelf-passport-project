@@ -53,10 +53,37 @@ router.get('/getItems', (req, res) => {
 
 
 
+router.delete('/delete/:placer/:itemId', (req,res) => {
+  let deleter = req.user._id;
+  let placer = req.params.placer;
+  let itemId = req.params.itemId;
+  console.log('hit server with delete request');
+  
+  
+  if(deleter == placer){
+    console.log('deleter matches placer');
+    
+     Item.findByIdAndRemove(
+        {"_id": itemId},
+        (error, data )=> {
+          if(error){
+            console.log('error on remove ', error);
+            res.sendStatus(500);
+          }else{
+            console.log('deleted your item: ', data);
+            res.send(data);
+          }
+        }
+    )
+    
+  }else {
+    console.log('user match failed on delete');
+    
+    res.sendStatus(500);
+    
+  }
 
-
-
-
+});//end delete
 
 
 

@@ -36,13 +36,24 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
     self.getItems();
 
 
+    /* Delete Item from Shelf */
+
     self.deleteItem = function(item){
+        let placer = item.placer;
+        let itemId = item._id;
+        $http.delete(`/api/shelf/delete/${placer}/${itemId}`)
 
-        
 
+            .then(    function(response){
+                self.getItems();
+            })
+            .catch ( function(response) {
 
+                console.log('error on delete: ', response);
+            })
 
-    }
+    }//end delete
+
 
 
 
