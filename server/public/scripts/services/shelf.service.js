@@ -1,4 +1,4 @@
-myApp.service('ShelfService', ['$http', '$location', function ($http, $location) {
+myApp.service('ShelfService', ['$http', '$location','$mdToast', function ($http, $location, $mdToast) {
     console.log('ShelfService Loaded');
     
     var self = this;
@@ -36,9 +36,29 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
     self.getItems();
 
 
+
+
+    /* Toast for Delete Failure */
+
+    self.showSimpleToast = function() {
+        
+    
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent('You can only Delete Items that you added to the Shelf!')
+            .position('right')
+            .hideDelay(3000)
+        );
+      };
+
+
+
+
     /* Delete Item from Shelf */
 
     self.deleteItem = function(item){
+
+
         let placer = item.placer;
         let itemId = item._id;
         $http.delete(`/api/shelf/delete/${placer}/${itemId}`)
@@ -48,7 +68,7 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
                 self.getItems();
             })
             .catch ( function(response) {
-
+                self.showSimpleToast();
                 console.log('error on delete: ', response);
             })
 
@@ -62,36 +82,10 @@ myApp.service('ShelfService', ['$http', '$location', function ($http, $location)
 
 
 
-    // // ask the server if this user is logged in
-    // self.getuser = function () {
-    //   $http.get('/api/user')
-    //     .then(function (response) {
-    //       if (response.data.username) {
-    //         // user has a curret session on the server
-    //         self.userObject.userName = response.data.username;
-    //         console.log('User Data: ', self.userObject.userName);
-    //       } else {
-    //         // unlikely to get here, but if we do, bounce them back to the login page
-    //         $location.path("/home");
-    //       }
-    //     },
-    //     // error response of unauthorized (403)
-    //     function(response) {
-    //       // user has no session, bounce them back to the login page
-    //       $location.path("/home");
-    //     });
-    // }
-  
-    // self.logout = function () {
-    //   $http.get('/api/user/logout')
-    //     .then(function (response) {
-    //       console.log('logged out');
-    //       $location.path("/home");
-    //     },
-    //   function(response) {
-    //     console.log('logged out error');
-    //     $location.path("/home");
-    //   });
-    // }
+
+
+
+
+
   }]);
   
