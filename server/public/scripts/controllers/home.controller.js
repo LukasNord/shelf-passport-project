@@ -1,10 +1,9 @@
 myApp.controller('HomeController', ['$http', '$location', 'UserService','ShelfService', function($http, $location, UserService, ShelfService) {
     console.log('HomeController created');
-    
+
     var self = this;
+
     self.items = ShelfService.items;
-
-
 
     self.user = {
       username: '',
@@ -14,7 +13,7 @@ myApp.controller('HomeController', ['$http', '$location', 'UserService','ShelfSe
     self.message = '';
 
     self.registerNav = false;
-    
+
     self.login = function() {
       if(self.user.username === '' || self.user.password === '') {
         self.message = "Enter your username and password!";
@@ -50,8 +49,9 @@ myApp.controller('HomeController', ['$http', '$location', 'UserService','ShelfSe
         },
         function(response) {
           console.log('error');
-          self.message = "Something went wrong. Please try again."
+          self.message = "Something went wrong. Please try again.";
         });
       }
-    }
+    };
+
 }]);
