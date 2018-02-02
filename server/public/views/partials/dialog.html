@@ -1,0 +1,28 @@
+<md-dialog aria-label="Add an Item to the Shelf">
+        <form ng-cloak>
+          <md-toolbar>
+            <div class="md-toolbar-tools">
+              <h2>Add an Item</h2>
+              <span flex></span>
+            </div>
+          </md-toolbar>
+      
+          <md-dialog-content>
+            <div class="md-dialog-content">
+              <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+             Item Name: <input ng-model="vm.addedItem.itemName"><br>
+             Description: <input ng-model="vm.addedItem.description"><br>
+             Image Url: <input ng-model="vm.addedItem.imageUrl">
+            </div>
+          </md-dialog-content>
+      
+          <md-dialog-actions layout="row">
+            <md-button ng-click="vm.cancel()">
+             Cancel
+            </md-button>
+            <md-button ng-click="vm.answer(vm.addedItem)" class="md-primary">
+              Add
+            </md-button>
+          </md-dialog-actions>
+        </form>
+      </md-dialog>
