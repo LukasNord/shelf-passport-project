@@ -8,8 +8,9 @@ const router = express.Router();
 
 
 var isAuthenticated = function (req, res, next) {
-  if (req.isAuthenticated())
+  if (req.isAuthenticated()){
     return next();
+  }
   res.send('Must be logged in to add items!');
 }
 
