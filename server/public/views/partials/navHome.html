@@ -1,0 +1,33 @@
+<div class="navbar">
+  <div class="container">
+    <ul ng-if="!vm.registerNav">
+      <li>
+          <a ng-click="vm.registerNav = true">Register</a>
+      </li>
+      <li>
+        <button ng-click="vm.login()">Login</button>
+      </li>
+      <li>
+          <label for="password">Password:</label>
+          <input type="password" ng-model="vm.user.password" />
+      </li>
+      <li>
+          <label for="username">Username:</label>
+          <input type="text" ng-model="vm.user.username" />
+      </li>
+    </ul>
+    <ul ng-if="vm.registerNav">
+      <li>
+        <button ng-click="vm.registerUser()">Create User</button>
+      </li>
+      <li>
+          <label>Choose Password:</label>
+          <input type="password" ng-model="vm.user.password" />
+      </li>
+      <li>
+          <label>Choose Username:</label>
+          <input type="text" ng-model="vm.user.username" />
+      </li>
+    </ul>
+  </div>
+</div>

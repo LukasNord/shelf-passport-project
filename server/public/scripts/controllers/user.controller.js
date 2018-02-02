@@ -1,34 +1,49 @@
-myApp.controller('UserController', ['UserService','$http', function(UserService,$http) {
+myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$mdDialog', function (UserService, $http, ShelfService, $mdDialog) {
   console.log('UserController created');
   var self = this;
   self.userService = UserService;
   self.userObject = UserService.userObject;
 
   self.shelfItem = {};
-  self.shelfItems = [{name: 'OBJ1'}, {name: 'OBJ2'}, {name: 'OBJ3'}];
+  self.items = ShelfService.items;
 
-  self.addItem = function(newItem){
-      console.log('new Item: ', newItem);
+  self.addItem = function (newItem) {
+    ShelfService.addItem(newItem);
+    ShelfService.getItems();
+  }//end add item
 
-      $http.post('/api/user/shelf', newItem).then(
-        function(response) {
-          console.log('item added: ', response);
-          
-        //   if(response.status == 200) {
-        //     console.log('success: ', response.data);
-        //     // location works with SPA (ng-route)
-        //     $location.path('/user');
-        //   } else {
-        //     console.log('failure error: ', response);
-        //     self.message = "Incorrect credentials. Please try again.";
-        //   }
-        // },
-        // function(response) {
-        //   console.log('failure error: ', response);
-        //   self.me
-    
-    });
-}//end add item
 
+  self.showAdvanced = function (ev) {
+    $mdDialog.show({
+        controller: DialogController,
+        controllerAs: 'vm',
+        templateUrl: '../views/partials/dialog.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      })
+      .then(function (answer) {
+        self.addItem(answer);
+      },function() {
+        self.status = 'You cancelled the dialog.';
+      });
+  };
+
+  function DialogController($mdDialog) {
+    const self = this;
+    self.hide = function () {
+      $mdDialog.hide();
+    };
+
+    self.cancel = function () {
+      $mdDialog.cancel();
+    };
+
+    self.answer = function (answer) {
+      console.log('answer', answer);
+
+      $mdDialog.hide(answer);
+    };
+  }
 
 }]);

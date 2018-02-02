@@ -31,25 +31,7 @@ router.post('/register', (req, res, next) => {
     .catch((err) => { next(err); });
 });
 
-router.post('/shelf', (req,res) => {
 
-  console.log('req.body: ', req);
-    
-    
-  const newItem = req.body;
-  newItem.placer = req.user._id;
-
-  console.log('newItem: ', newItem);
-  
-  let itemToSave = new Item( newItem );
-
-  itemToSave.save()
-    .then(() => { res.sendStatus(201); })
-    .catch((err)=> { next(err); });
-
-
-
-});// end shelf post
 
 
 

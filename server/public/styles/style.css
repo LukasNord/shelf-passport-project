@@ -47,6 +47,7 @@
 
 }
 
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -54,11 +55,11 @@ ul {
     overflow: hidden;
 }
 
-.btn {
+li {
     float: right;
 }
 
-.btn {
+li {
     display: block;
     color: black;
     text-align: center;
@@ -67,8 +68,6 @@ ul {
 
 }
 
-/* Change the link color to #111 (black) on hover */
-.btn:hover {
-    text-decoration: underline;
-    background-color: rgb(233, 233, 233);
+label {
+    color: white;
 }
