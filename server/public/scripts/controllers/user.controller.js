@@ -1,7 +1,7 @@
 myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$mdDialog', function (UserService, $http, ShelfService, $mdDialog) {
   console.log('UserController created');
   var self = this;
-  self.userView - true;
+  self.userView = true;
   self.userObject = UserService.userObject;
   self.logout = UserService.logout;
 
