@@ -16,11 +16,17 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
 
 
 
+  self.deleteItem = function(item){
+
+    console.log('item to delete: ', item);
+    ShelfService.deleteItem(item);
+    
+
+  }
 
 
 
-
-  /*   Dialogue Box for Add Item  */ 
+  /*   Dialog Box for Add Item  */ 
 
   self.showAdvanced = function (ev) {
     $mdDialog.show({

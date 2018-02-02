@@ -6,12 +6,12 @@
                 <span class="md-subhead">{{item.description}}</span>
             </md-card-title-text>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-if="vm.userView">Delete</md-button>
+                <md-button ng-click="vm.deleteItem(item)" ng-if="vm.userView">Delete</md-button>
             </md-card-actions>
         </md-card-title>
         <md-card-title-media>
             <div class="md-media-lg card-media">
-                <img class="md-card-image" src="https://orig00.deviantart.net/cc47/f/2011/236/b/7/the_cake_is_not_a_lie_by_csiosoft-d47p2lo.png" alt="">
+                <img class="md-card-image" ng-src="{{item.imageUrl}}" alt="no-URL">
             </div>
         </md-card-title-media>
     </md-card>
