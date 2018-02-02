@@ -1,7 +1,7 @@
 myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$mdDialog', function (UserService, $http, ShelfService, $mdDialog) {
   console.log('UserController created');
   var self = this;
-  self.userService = UserService;
+  self.userView - true;
   self.userObject = UserService.userObject;
 
   self.shelfItem = {};
@@ -10,7 +10,7 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
   self.addItem = function (newItem) {
     ShelfService.addItem(newItem);
     ShelfService.getItems();
-  }//end add item
+  } //end add item
 
 
   self.showAdvanced = function (ev) {
@@ -24,7 +24,7 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
       })
       .then(function (answer) {
         self.addItem(answer);
-      },function() {
+      }, function () {
         self.status = 'You cancelled the dialog.';
       });
   };
