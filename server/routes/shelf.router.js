@@ -11,9 +11,10 @@ const router = express.Router();
 
 /* POST: Add Item to Item Collection */
 
-router.post('/addItem', userStrategy.authenticate('local'), (req,res) => {
+router.post('/addItem', (req,res) => {
+  // if  {
 
-    console.log('req.body: ', req);
+    console.log('req.user: ', req.user);
       
     const newItem = req.body;
     newItem.placer = req.user._id;
@@ -25,7 +26,9 @@ router.post('/addItem', userStrategy.authenticate('local'), (req,res) => {
     itemToSave.save()
       .then(() => { res.sendStatus(201); })
       .catch((err)=> { next(err); });
-  
+  // } else {
+  //   res.sendStatus(500);
+  // }
   });// end shelf post
   
 

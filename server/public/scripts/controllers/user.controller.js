@@ -3,9 +3,12 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
   var self = this;
   self.userView - true;
   self.userObject = UserService.userObject;
+  self.logout = UserService.logout;
+
 
   self.shelfItem = {};
   self.items = ShelfService.items;
+
 
   self.addItem = function (newItem) {
     ShelfService.addItem(newItem);

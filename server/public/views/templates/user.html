@@ -1,20 +1,10 @@
-<div class="navbar">
-    <div class="container">
-        <button class="btn" ng-click="vm.userService.logout()">Log Out</button>
-        <button class="btn" ng-click="vm.showAdvanced()">Add Item</button>
-    </div>
-</div>
+<div ng-include="'views/partials/navUser.html'"></div>
 
 
 <div class="container">
 
     <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
-
-
-    <div id="itemHolder" style="display: flex; flex-direction:row; align-items:center; justify-content:center;">
-        <div ng-repeat="item in vm.shelfItems">
-            {{item}}
-        </div>
-    </div>
+    <h1 class="lead">Shelf</h1>
+    <div ng-include="'views/partials/shelf.html'"></div>  
     
 </div>
