@@ -5,7 +5,6 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
   self.userObject = UserService.userObject;
   self.logout = UserService.logout;
 
-
   self.shelfItem = {};
   self.items = ShelfService.items;
 
@@ -15,6 +14,19 @@ myApp.controller('UserController', ['UserService', '$http', 'ShelfService', '$md
     ShelfService.getItems();
   } //end add item
 
+
+
+  self.deleteItem = function(item){
+
+    console.log('item to delete: ', item);
+    ShelfService.deleteItem(item);
+    
+
+  }
+
+
+
+  /*   Dialog Box for Add Item  */ 
 
   self.showAdvanced = function (ev) {
     $mdDialog.show({
